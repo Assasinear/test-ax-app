@@ -4,12 +4,11 @@ import {
     TableContainer,
     TableHeader,
     TableRow,
-    TableCell,
     FilterSelect,
     PaginationContainer,
     PaginationButton,
     SelectPageSize,
-    SortButton,
+    SortButton, TableCellNameGenreDeveloperPublisher, TableCellPlatform, TableCellReleaseDate, TableHeaderTitle,
 } from './Table.styles';
 
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
@@ -92,9 +91,11 @@ export const Table: React.FC = () => {
     return (
         <TableContainer>
             <TableHeader>
-                <TableCell><b>Название</b></TableCell>
-                <TableCell>
-                    <b>Жанр</b>
+                <TableCellNameGenreDeveloperPublisher>
+                    <TableHeaderTitle>Наименование</TableHeaderTitle>
+                </TableCellNameGenreDeveloperPublisher>
+                <TableCellNameGenreDeveloperPublisher>
+                    <TableHeaderTitle>Жанр</TableHeaderTitle>
                     <FilterSelect onChange={(e) => {
                         setGenre(GENRES[e.target.value as keyof typeof GENRES]);
                         setCurrentPage(1);
@@ -102,9 +103,9 @@ export const Table: React.FC = () => {
                         <option value="">Все</option>
                         {Object.keys(GENRES).map(g => <option key={g} value={g}>{g}</option>)}
                     </FilterSelect>
-                </TableCell>
-                <TableCell>
-                    <b>Платформа</b>
+                </TableCellNameGenreDeveloperPublisher>
+                <TableCellPlatform>
+                    <TableHeaderTitle>Платформа</TableHeaderTitle>
                     <FilterSelect onChange={(e) => {
                         setPlatform(PLATFORMS[e.target.value as keyof typeof PLATFORMS]);
                         setCurrentPage(1);
@@ -112,24 +113,32 @@ export const Table: React.FC = () => {
                         <option value="">Все</option>
                         {Object.keys(PLATFORMS).map(p => <option key={p} value={p}>{p}</option>)}
                     </FilterSelect>
-                </TableCell>
-                <TableCell><b>Издатель</b></TableCell>
-                <TableCell><b>Разработчик</b></TableCell>
-                <TableCell>
-                    <b>Дата релиза</b>
+                </TableCellPlatform>
+                <TableCellNameGenreDeveloperPublisher>
+                    <TableHeaderTitle>
+                        Издатель
+                    </TableHeaderTitle>
+                </TableCellNameGenreDeveloperPublisher>
+                <TableCellNameGenreDeveloperPublisher>
+                    <TableHeaderTitle>
+                        Разработчик
+                    </TableHeaderTitle>
+                </TableCellNameGenreDeveloperPublisher>
+                <TableCellReleaseDate>
+                    <TableHeaderTitle>Дата релиза</TableHeaderTitle>
                     <SortButton onClick={() => setSort(sort === 'release-date-up' ? 'release-date-down' : 'release-date-up')}>
-                        Сортировать {sort === 'release-date-up' ? '🔽' : '🔼'}
+                        {sort === 'release-date-up' ? '🔽' : '🔼'}
                     </SortButton>
-                </TableCell>
+                </TableCellReleaseDate>
             </TableHeader>
             {paginatedData.map(game => (
                 <TableRow key={game.id}>
-                    <TableCell>{game.title}</TableCell>
-                    <TableCell>{game.genre}</TableCell>
-                    <TableCell>{game.platform}</TableCell>
-                    <TableCell>{game.publisher}</TableCell>
-                    <TableCell>{game.developer}</TableCell>
-                    <TableCell>{game.release_date}</TableCell>
+                    <TableCellNameGenreDeveloperPublisher>{game.title}</TableCellNameGenreDeveloperPublisher>
+                    <TableCellNameGenreDeveloperPublisher>{game.genre}</TableCellNameGenreDeveloperPublisher>
+                    <TableCellPlatform>{game.platform}</TableCellPlatform>
+                    <TableCellNameGenreDeveloperPublisher>{game.publisher}</TableCellNameGenreDeveloperPublisher>
+                    <TableCellNameGenreDeveloperPublisher>{game.developer}</TableCellNameGenreDeveloperPublisher>
+                    <TableCellReleaseDate>{game.release_date}</TableCellReleaseDate>
                 </TableRow>
             ))}
             <PaginationContainer>

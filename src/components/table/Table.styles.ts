@@ -3,19 +3,20 @@ import styled from 'styled-components';
 export const TableContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background-color: #f05309;
   color: #ffffff;
+  margin-top: 75px;
+  margin-right: 40px;
+  margin-left: 40px;
   border-radius: 10px;
+  width: 1840px;
+  height: 666px;
 `;
 
 export const TableHeader = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
   align-items: center;
-  border-bottom: 2px solid #444;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  background-color: #181A20;
 `;
 
 export const TableRow = styled.div`
@@ -26,9 +27,42 @@ export const TableRow = styled.div`
   border-bottom: 1px solid #444;
 `;
 
-export const TableCell = styled.div`
+export const TableCellNameGenreDeveloperPublisher = styled.div`
   flex: 1;
-  text-align: center;
+  font-family: Roboto,serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  width: 325px;
+  height: 54px;
+`;
+
+export const TableHeaderTitle = styled.b`
+  display: flex;
+  padding: 16px;
+`;
+
+export const TableCellPlatform = styled.div`
+  flex: 1;
+  font-family: Roboto,serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  width: 364px;
+  height: 54px;
+`;
+
+export const TableCellReleaseDate = styled.div`
+  flex: 1;
+  font-family: Roboto,serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  width: 176px;
+  height: 54px;
 `;
 
 export const FilterSelect = styled.select`
