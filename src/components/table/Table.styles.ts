@@ -10,6 +10,13 @@ export const TableContainer = styled.div`
   border-radius: 10px;
   width: 1840px;
   height: 666px;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const TableDataContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
 `;
 
 export const TableHeader = styled.div`
@@ -23,46 +30,60 @@ export const TableRow = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
   border-bottom: 1px solid #444;
 `;
 
 export const TableCellNameGenreDeveloperPublisher = styled.div`
   flex: 1;
-  font-family: Roboto,serif;
+  font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   width: 325px;
   height: 54px;
+  display: flex;
+  align-items: center;
 `;
 
-export const TableHeaderTitle = styled.b`
-  display: flex;
+export const TableCellContent = styled.b`
   padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Separator = styled.div`
+  height: 22px;
+  width: 1px;
+  background-color: #FFFFFF;
+  margin: 0 10px;
 `;
 
 export const TableCellPlatform = styled.div`
   flex: 1;
-  font-family: Roboto,serif;
+  font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
-  width: 364px;
   height: 54px;
+  width: 364px;
+  display: flex;
+  align-items: center;
 `;
 
 export const TableCellReleaseDate = styled.div`
   flex: 1;
-  font-family: Roboto,serif;
+  font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   width: 176px;
   height: 54px;
+  display: flex;
+  align-items: center;
 `;
 
 export const FilterSelect = styled.select`
@@ -70,13 +91,22 @@ export const FilterSelect = styled.select`
   margin-right: 10px;
   border-radius: 5px;
   border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #444444 url('data:image/svg+xml;base64,PHN2ZyB...') no-repeat 95% center;
+  color: white;
+
+  &::-ms-expand {
+    display: none;
+  }
 `;
 
 export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  background-color: #181A20;
 `;
 
 export const PaginationButton = styled.button`

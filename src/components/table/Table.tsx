@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import axios from 'axios';
 import {
-    TableContainer,
-    TableHeader,
-    TableRow,
-    FilterSelect,
-    PaginationContainer,
-    PaginationButton,
-    SelectPageSize,
-    SortButton, TableCellNameGenreDeveloperPublisher, TableCellPlatform, TableCellReleaseDate, TableHeaderTitle,
+    TableContainer, TableHeader, TableRow, FilterSelect, PaginationContainer, PaginationButton,
+    SelectPageSize, SortButton, TableCellNameGenreDeveloperPublisher, TableCellPlatform, TableCellReleaseDate,
+    TableCellContent, TableDataContainer, Separator
 } from './Table.styles';
 
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
@@ -51,7 +46,7 @@ type Game = {
     freetogame_profile_url: string;
 };
 
-export const Table: React.FC = () => {
+export const Table: React.FC = memo(() => {
     const [games, setGames] = useState<Game[]>([]);
     const [genre, setGenre] = useState<string>('');
     const [platform, setPlatform] = useState<string>('');
@@ -65,9 +60,11 @@ export const Table: React.FC = () => {
         if (genre) {
             url += `category=${genre}&`;
         }
+
         if (platform) {
             url += `platform=${platform}&`;
         }
+
         if (sort) {
             const sortBy = sort === 'release-date-up' ? 'release-date' : '-release-date';
             url += `sort-by=${sortBy}&`;
@@ -92,55 +89,76 @@ export const Table: React.FC = () => {
         <TableContainer>
             <TableHeader>
                 <TableCellNameGenreDeveloperPublisher>
-                    <TableHeaderTitle>Наименование</TableHeaderTitle>
+                    <TableCellContent> Наименование </TableCellContent>
+                    <Separator/>
                 </TableCellNameGenreDeveloperPublisher>
                 <TableCellNameGenreDeveloperPublisher>
-                    <TableHeaderTitle>Жанр</TableHeaderTitle>
-                    <FilterSelect onChange={(e) => {
-                        setGenre(GENRES[e.target.value as keyof typeof GENRES]);
-                        setCurrentPage(1);
-                    }} value={Object.keys(GENRES).find(key => GENRES[key as keyof typeof GENRES] === genre) || ''}>
+                    <TableCellContent> Жанр </TableCellContent>
+                    <FilterSelect
+                        onChange={(e) => {
+                            setGenre(GENRES[e.target.value as keyof typeof GENRES]);
+                            setCurrentPage(1);
+                        }}
+                        value={Object.keys(GENRES).find(key => GENRES[key as keyof typeof GENRES] === genre) || ''}
+                    >
                         <option value="">Все</option>
                         {Object.keys(GENRES).map(g => <option key={g} value={g}>{g}</option>)}
                     </FilterSelect>
+                    <Separator/>
                 </TableCellNameGenreDeveloperPublisher>
                 <TableCellPlatform>
-                    <TableHeaderTitle>Платформа</TableHeaderTitle>
-                    <FilterSelect onChange={(e) => {
-                        setPlatform(PLATFORMS[e.target.value as keyof typeof PLATFORMS]);
-                        setCurrentPage(1);
-                    }} value={Object.keys(PLATFORMS).find(key => PLATFORMS[key as keyof typeof PLATFORMS] === platform) || ''}>
+                    <TableCellContent> Платформа </TableCellContent>
+                    <FilterSelect
+                        onChange={(e) => {
+                            setPlatform(PLATFORMS[e.target.value as keyof typeof PLATFORMS]);
+                            setCurrentPage(1);
+                        }}
+                        value={Object.keys(PLATFORMS).find(key => PLATFORMS[key as keyof typeof PLATFORMS] === platform) || ''}
+                    >
                         <option value="">Все</option>
                         {Object.keys(PLATFORMS).map(p => <option key={p} value={p}>{p}</option>)}
                     </FilterSelect>
+                    <Separator/>
                 </TableCellPlatform>
                 <TableCellNameGenreDeveloperPublisher>
-                    <TableHeaderTitle>
-                        Издатель
-                    </TableHeaderTitle>
+                    <TableCellContent> Издатель </TableCellContent>
+                    <Separator/>
                 </TableCellNameGenreDeveloperPublisher>
                 <TableCellNameGenreDeveloperPublisher>
-                    <TableHeaderTitle>
-                        Разработчик
-                    </TableHeaderTitle>
+                    <TableCellContent> Разработчик </TableCellContent>
+                    <Separator/>
                 </TableCellNameGenreDeveloperPublisher>
                 <TableCellReleaseDate>
-                    <TableHeaderTitle>Дата релиза</TableHeaderTitle>
+                    <TableCellContent> Дата релиза </TableCellContent>
                     <SortButton onClick={() => setSort(sort === 'release-date-up' ? 'release-date-down' : 'release-date-up')}>
                         {sort === 'release-date-up' ? '🔽' : '🔼'}
                     </SortButton>
                 </TableCellReleaseDate>
             </TableHeader>
-            {paginatedData.map(game => (
-                <TableRow key={game.id}>
-                    <TableCellNameGenreDeveloperPublisher>{game.title}</TableCellNameGenreDeveloperPublisher>
-                    <TableCellNameGenreDeveloperPublisher>{game.genre}</TableCellNameGenreDeveloperPublisher>
-                    <TableCellPlatform>{game.platform}</TableCellPlatform>
-                    <TableCellNameGenreDeveloperPublisher>{game.publisher}</TableCellNameGenreDeveloperPublisher>
-                    <TableCellNameGenreDeveloperPublisher>{game.developer}</TableCellNameGenreDeveloperPublisher>
-                    <TableCellReleaseDate>{game.release_date}</TableCellReleaseDate>
-                </TableRow>
-            ))}
+            <TableDataContainer>
+                {paginatedData.map(game => (
+                    <TableRow key={game.id}>
+                        <TableCellNameGenreDeveloperPublisher>
+                            <TableCellContent> {game.title} </TableCellContent>
+                        </TableCellNameGenreDeveloperPublisher>
+                        <TableCellNameGenreDeveloperPublisher>
+                            <TableCellContent> {game.genre} </TableCellContent>
+                        </TableCellNameGenreDeveloperPublisher>
+                        <TableCellPlatform>
+                            <TableCellContent> {game.platform} </TableCellContent>
+                        </TableCellPlatform>
+                        <TableCellNameGenreDeveloperPublisher>
+                            <TableCellContent> {game.publisher} </TableCellContent>
+                        </TableCellNameGenreDeveloperPublisher>
+                        <TableCellNameGenreDeveloperPublisher>
+                            <TableCellContent> {game.developer} </TableCellContent>
+                        </TableCellNameGenreDeveloperPublisher>
+                        <TableCellReleaseDate>
+                            <TableCellContent> {game.release_date} </TableCellContent>
+                        </TableCellReleaseDate>
+                    </TableRow>
+                ))}
+            </TableDataContainer>
             <PaginationContainer>
                 <PaginationButton onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>
                     В начало
@@ -153,13 +171,12 @@ export const Table: React.FC = () => {
                 <PaginationButton onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>
                     В конец
                 </PaginationButton>
-                <span>
-                       выводить по
-                       <SelectPageSize onChange={(e) => setPageSize(parseInt(e.target.value))} value={pageSize}>
-                           {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
-                       </SelectPageSize>
-                   </span>
+                <span> выводить по
+          <SelectPageSize onChange={(e) => setPageSize(parseInt(e.target.value))} value={pageSize}>
+            {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
+          </SelectPageSize>
+        </span>
             </PaginationContainer>
         </TableContainer>
     );
-};
+});
