@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {memo, ReactNode} from 'react';
 import {
     LayoutContainer,
     Gamepad,
@@ -7,17 +7,17 @@ import {
     IconButtonYSecond,
     IconButtonSquare, IconButtonO
 } from './Layout.styles';
-import iconX from '../assets/buttonX.svg';
-import iconY from '../assets/buttonY.svg';
-import iconSquare from '../assets/buttonSquare.svg';
-import iconO from '../assets/buttonO.svg';
-import gamepad from '../assets/gamepad.svg';
+import iconX from '../../assets/buttonX.svg';
+import iconY from '../../assets/buttonY.svg';
+import iconSquare from '../../assets/buttonSquare.svg';
+import iconO from '../../assets/buttonO.svg';
+import gamepad from '../../assets/gamepad.svg';
 
 interface LayoutProps {
     children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = memo(({ children }) => {
     return (
         <LayoutContainer>
             <IconButtonX src={iconX} alt="IconX" />
@@ -29,6 +29,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {children}
         </LayoutContainer>
     );
-};
-
-export default Layout;
+});
