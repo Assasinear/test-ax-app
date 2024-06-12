@@ -8,51 +8,8 @@ import {
   TableDataContainer,
 } from './table.styles';
 import { TableCell } from './components/table-cell';
-
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-
-const GENRES = {
-  'Shooter': 'shooter',
-  'MMORPG': 'mmorpg',
-  'Стратегия': 'strategy',
-  'Экшен-РПГ': 'action-rpg',
-  'Battle Royale': 'battle-royale',
-  'Файтинг': 'fighting',
-  'MOBA': 'moba',
-  'Action': 'action',
-  'Sports': 'sports',
-  'Гонки': 'racing',
-  'Карточная': 'card',
-  'MMO': 'mmo',
-  'Социальная': 'social',
-  'Фэнтези': 'fantasy'
-};
-
-const PLATFORMS = {
-  'ПК': 'pc',
-  'Браузер': 'browser'
-};
-
-enum SORT_OPTIONS {
-  ReleaseDateUp = 'release-date-up',
-  ReleaseDateDown = 'release-date-down'
-}
-
-const pageSizes = [10, 20, 50];
-
-type Game = {
-  id: number;
-  title: string;
-  short_description: string;
-  thumbnail: string;
-  game_url: string;
-  genre: string;
-  platform: string;
-  publisher: string;
-  developer: string;
-  release_date: string;
-  freetogame_profile_url: string;
-};
+import {CORS_PROXY, GENRES, pageSizes, PLATFORMS, SORT_OPTIONS} from "./table.constants";
+import {Game} from "./table.types";
 
 export const Table: FC = memo(() => {
   const [games, setGames] = useState<Game[]>([]);

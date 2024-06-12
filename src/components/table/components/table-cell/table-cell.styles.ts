@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const TableCellNameGenreDeveloperPublisher = styled.div`
-  flex: 1;
   font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
@@ -21,7 +20,6 @@ export const TableCellContent = styled.b`
 `;
 
 export const TableCellPlatform = styled.div`
-  flex: 1;
   font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
@@ -34,7 +32,6 @@ export const TableCellPlatform = styled.div`
 `;
 
 export const TableCellReleaseDate = styled.div`
-  flex: 1;
   font-family: Roboto, serif;
   font-style: normal;
   font-weight: 600;
