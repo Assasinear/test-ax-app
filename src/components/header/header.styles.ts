@@ -6,9 +6,7 @@ export const HeaderContainer = styled.header`
   background-color: #ff6600;
   height: 140px;
   width: 1840px;
-  margin-top: 72px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 72px 40px 0;
 `;
 
 export const Logo = styled.img`

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const LayoutContainer = styled.div`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 1920px;
-  height: 1080px;
   background-color: #ff6600;
   overflow: hidden;
 `;
