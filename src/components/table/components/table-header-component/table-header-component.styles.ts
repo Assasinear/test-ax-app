@@ -60,25 +60,12 @@ export const TableCellReleaseDate = styled.div`
     justify-content: space-between;
 `;
 
-export const FilterSelect = styled.select`
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: #444444 url('data:image/svg+xml;base64,PHN2ZyB...') no-repeat 95% center;
-    color: white;
-
-    &::-ms-expand {
-        display: none;
-    }
-`;
 export const SortButton = styled.button`
     background: transparent;
     border: none;
     color: inherit;
+    padding: 16px;
+    margin-top: 5px;
     font: inherit;
     cursor: pointer;
 
@@ -90,3 +77,59 @@ export const SortButton = styled.button`
         cursor: not-allowed;
     }
 `;
+
+export const CustomSelectContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+export const CustomSelectTrigger = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 200px;
+  background: transparent;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+export const CustomSelectOptions = styled.div`
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #444444;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  border-radius: 5px;
+
+  &.open {
+    display: block;
+  }
+`;
+
+export const CustomSelectOption = styled.div`
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #333333;
+  }
+`;
+
+export const FilterSelect = styled.select`
+  display: none;
+`;
+
+export const SvgIcon = styled.span`
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+`;
+

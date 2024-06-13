@@ -10,6 +10,7 @@ import {
 import { TableCell } from './components/table-cell';
 import {CORS_PROXY, GENRES, pageSizes, PLATFORMS, SORT_OPTIONS} from "./table.constants";
 import {Game} from "./table.types";
+import dayjs from "dayjs";
 
 export const Table: FC = memo(() => {
   const [games, setGames] = useState<Game[]>([]);
@@ -18,6 +19,7 @@ export const Table: FC = memo(() => {
   const [sort, setSort] = useState<SORT_OPTIONS | ''>('');
   const [pageSize, setPageSize] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchGames = useCallback(async () => {
     let url = `${CORS_PROXY}https://www.freetogame.com/api/games?`;
@@ -44,7 +46,8 @@ export const Table: FC = memo(() => {
   }, [genre, platform, sort]);
 
   useEffect(() => {
-    fetchGames();
+    setLoading(true);
+    fetchGames().then(() => setLoading(false));
   }, [fetchGames]);
 
   const totalPages = useMemo(() => Math.ceil(games.length / pageSize), [games.length, pageSize]);
@@ -61,7 +64,8 @@ export const Table: FC = memo(() => {
   }, []);
 
   const handleSortChange = useCallback(() => {
-    setSort(prevSort => (prevSort === SORT_OPTIONS.ReleaseDateUp ? SORT_OPTIONS.ReleaseDateDown : SORT_OPTIONS.ReleaseDateUp));
+    setSort(prevSort => (prevSort === SORT_OPTIONS.ReleaseDateUp ? SORT_OPTIONS.ReleaseDateDown
+        : prevSort === SORT_OPTIONS.ReleaseDateDown ? "" : SORT_OPTIONS.ReleaseDateUp));
   }, []);
 
   const handlePageSizeChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
@@ -96,7 +100,7 @@ export const Table: FC = memo(() => {
             <TableCell type="platform" content={game.platform}/>
             <TableCell type="publisher" content={game.publisher}/>
             <TableCell type="developer" content={game.developer}/>
-            <TableCell type="release_date" content={game.release_date}/>
+            <TableCell type="release_date" content={dayjs(game.release_date).format('DD.MM.YYYY')}/>
           </TableRow>
         ))}
       </TableDataContainer>
