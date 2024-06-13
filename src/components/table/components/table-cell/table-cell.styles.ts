@@ -7,7 +7,7 @@ export const TableCellNameGenreDeveloperPublisher = styled.div`
   font-size: 14px;
   line-height: 22px;
   width: 325px;
-  height: 54px;
+  height: 53px;
   display: flex;
   align-items: center;
 `;
@@ -25,7 +25,7 @@ export const TableCellPlatform = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
-  height: 54px;
+  height: 53px;
   width: 364px;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ export const TableCellReleaseDate = styled.div`
   font-size: 14px;
   line-height: 22px;
   width: 176px;
-  height: 54px;
+  height: 53px;
   display: flex;
   align-items: center;
 `;
