@@ -42,7 +42,7 @@ export const TableRow = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #000000;
 `;
 
 export const TableCellNameGenreDeveloperPublisher = styled.div`
