@@ -15,7 +15,6 @@ export const Table: FC = memo(() => {
   const [sort, setSort] = useState<SORT_OPTIONS | ''>('');
   const [pageSize, setPageSize] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchGames = useCallback(async () => {
     let url = `${CORS_PROXY}https://www.freetogame.com/api/games?`;
@@ -47,8 +46,7 @@ export const Table: FC = memo(() => {
   }, [genre, platform, sort]);
 
   useEffect(() => {
-    setLoading(true);
-    fetchGames().then(() => setLoading(false));
+    fetchGames();
   }, [fetchGames]);
 
   const totalPages = useMemo(() => Math.ceil(games.length / pageSize), [games.length, pageSize]);
@@ -70,6 +68,7 @@ export const Table: FC = memo(() => {
 
   const handlePageSizeChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setPageSize(parseInt(e.target.value));
+    setCurrentPage(1);
   }, []);
 
   const handlePageChange = useCallback((page: number) => {
