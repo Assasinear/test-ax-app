@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="Pagination update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/table.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/table/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +79,7 @@
       <workItem from="1718192688117" duration="3222000" />
       <workItem from="1718285899358" duration="4381000" />
       <workItem from="1718322073739" duration="8014000" />
+      <workItem from="1718352148088" duration="3196000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />

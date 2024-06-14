@@ -1,21 +1,21 @@
-import { FC, ChangeEvent, memo, useState } from 'react';
+import React, { FC, ChangeEvent, memo, useState } from 'react';
 import {
-    TableCellNameGenreDeveloperPublisher,
-    TableCellPlatform,
-    TableCellReleaseDate,
-    TableHeader,
+    TableHeaderRow,
+    TableHeaderCell,
+    TableHeaderContent,
     Separator,
-    TableCellContent,
     SortButton,
     CustomSelectContainer,
     CustomSelectTrigger,
     CustomSelectOptions,
     CustomSelectOption,
-    SvgIcon
+    SvgIcon,
+    TableHeaderReleaseDateCell, TableHeaderPlatformCell
 } from './table-header-component.styles';
 import sorterNone from '../../../../assets/sorterNone.svg';
 import sorterUp from '../../../../assets/sorterUp.svg';
 import sorterDown from '../../../../assets/sorterDown.svg';
+import filterIcon from '../../../../assets/filter.svg'
 
 enum SORT_OPTIONS {
     ReleaseDateUp = 'release-date-up',
@@ -31,100 +31,69 @@ interface TableHeaderComponentProps {
     PLATFORMS: { [key: string]: string };
 }
 
-const genreIcon = (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.08983 15.884C8.08983 16.0915 8.25624 16.259 8.46249 16.259H11.5375C11.7437 16.259 11.9101 16.0915 11.9101 15.884V13.5872H8.08983V15.884ZM14.3137 7.86841H5.68631C5.3992 7.86841 5.21991 8.1813 5.36405 8.43091L7.95741 12.8372H12.0449L14.6383 8.43091C14.7801 8.1813 14.6008 7.86841 14.3137 7.86841Z" fill="white"/>
-    </svg>
-);
-
-const platformIcon = (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.08983 15.884C8.08983 16.0915 8.25624 16.259 8.46249 16.259H11.5375C11.7437 16.259 11.9101 16.0915 11.9101 15.884V13.5872H8.08983V15.884ZM14.3137 7.86841H5.68631C5.3992 7.86841 5.21991 8.1813 5.36405 8.43091L7.95741 12.8372H12.0449L14.6383 8.43091C14.7801 8.1813 14.6008 7.86841 14.3137 7.86841Z" fill="white"/>
-    </svg>
-);
-
-export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({
-                                                                             handleGenreChange,
-                                                                             handlePlatformChange,
-                                                                             handleSortChange,
-                                                                             sort,
-                                                                             GENRES,
-                                                                             PLATFORMS,
-                                                                         }) => {
+export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({ handleGenreChange, handlePlatformChange, handleSortChange, sort, GENRES, PLATFORMS }) => {
     const [isGenreOpen, setIsGenreOpen] = useState(false);
     const [isPlatformOpen, setIsPlatformOpen] = useState(false);
 
     return (
-        <TableHeader>
-            <TableCellNameGenreDeveloperPublisher>
-                <TableCellContent>Наименование</TableCellContent>
+        <TableHeaderRow>
+            <TableHeaderCell>
+                <TableHeaderContent>Наименование</TableHeaderContent>
                 <Separator />
-            </TableCellNameGenreDeveloperPublisher>
+            </TableHeaderCell>
 
-            <TableCellNameGenreDeveloperPublisher>
-                <TableCellContent>Жанр</TableCellContent>
+            <TableHeaderCell>
+                <TableHeaderContent>Жанр</TableHeaderContent>
                 <CustomSelectContainer onClick={() => setIsGenreOpen(!isGenreOpen)}>
                     <CustomSelectTrigger>
-                        <SvgIcon>{genreIcon}</SvgIcon>
+                        <SvgIcon>
+                            <img src={filterIcon} alt='filterGenreIcon'/>
+                        </SvgIcon>
                     </CustomSelectTrigger>
                     <CustomSelectOptions className={isGenreOpen ? 'open' : ''}>
-                        <CustomSelectOption onClick={() => handleGenreChange({ target: { value: '' }} as ChangeEvent<HTMLSelectElement>)}>
-                            Все
-                        </CustomSelectOption>
+                        <CustomSelectOption onClick={() => handleGenreChange({ target: { value: '' } } as ChangeEvent<HTMLSelectElement>)}>Все</CustomSelectOption>
                         {Object.keys(GENRES).map(g => (
-                            <CustomSelectOption
-                                key={g}
-                                onClick={() => handleGenreChange({ target: { value: g }} as ChangeEvent<HTMLSelectElement>)}
-                            >
-                                {g}
-                            </CustomSelectOption>
+                            <CustomSelectOption key={g} onClick={() => handleGenreChange({ target: { value: g } } as ChangeEvent<HTMLSelectElement>)}>{g}</CustomSelectOption>
                         ))}
                     </CustomSelectOptions>
                 </CustomSelectContainer>
                 <Separator />
-            </TableCellNameGenreDeveloperPublisher>
+            </TableHeaderCell>
 
-            <TableCellPlatform>
-                <TableCellContent>Платформа</TableCellContent>
+            <TableHeaderPlatformCell>
+                <TableHeaderContent>Платформа</TableHeaderContent>
                 <CustomSelectContainer onClick={() => setIsPlatformOpen(!isPlatformOpen)}>
                     <CustomSelectTrigger>
-                        <SvgIcon>{platformIcon}</SvgIcon>
+                        <SvgIcon>
+                            <img src={filterIcon} alt='filterPlatformIcon'/>
+                        </SvgIcon>
                     </CustomSelectTrigger>
                     <CustomSelectOptions className={isPlatformOpen ? 'open' : ''}>
-                        <CustomSelectOption onClick={() => handlePlatformChange({ target: { value: '' }} as ChangeEvent<HTMLSelectElement>)}>
-                            Все
-                        </CustomSelectOption>
+                        <CustomSelectOption onClick={() => handlePlatformChange({ target: { value: '' } } as ChangeEvent<HTMLSelectElement>)}>Все</CustomSelectOption>
                         {Object.keys(PLATFORMS).map(p => (
-                            <CustomSelectOption
-                                key={p}
-                                onClick={() => handlePlatformChange({ target: { value: p }} as ChangeEvent<HTMLSelectElement>)}
-                            >
-                                {p}
-                            </CustomSelectOption>
+                            <CustomSelectOption key={p} onClick={() => handlePlatformChange({ target: { value: p } } as ChangeEvent<HTMLSelectElement>)}>{p}</CustomSelectOption>
                         ))}
                     </CustomSelectOptions>
                 </CustomSelectContainer>
                 <Separator />
-            </TableCellPlatform>
+            </TableHeaderPlatformCell>
 
-            <TableCellNameGenreDeveloperPublisher>
-                <TableCellContent>Издатель</TableCellContent>
+            <TableHeaderCell>
+                <TableHeaderContent>Издатель</TableHeaderContent>
                 <Separator />
-            </TableCellNameGenreDeveloperPublisher>
+            </TableHeaderCell>
 
-            <TableCellNameGenreDeveloperPublisher>
-                <TableCellContent>Разработчик</TableCellContent>
+            <TableHeaderCell>
+                <TableHeaderContent>Разработчик</TableHeaderContent>
                 <Separator />
-            </TableCellNameGenreDeveloperPublisher>
+            </TableHeaderCell>
 
-            <TableCellReleaseDate>
-                <TableCellContent>Дата релиза</TableCellContent>
+            <TableHeaderReleaseDateCell>
+                <TableHeaderContent>Дата релиза</TableHeaderContent>
                 <SortButton onClick={handleSortChange}>
-                    {sort === SORT_OPTIONS.ReleaseDateUp ? <img src={sorterUp} alt='sorterUp'/>
-                        : sort === SORT_OPTIONS.ReleaseDateDown ? <img src={sorterDown} alt='sorterDown'/>
-                            : <img src={sorterNone} alt='sorterNone'/>}
+                    {sort === SORT_OPTIONS.ReleaseDateUp ? <img src={sorterUp} alt="sorterUp" /> : sort === SORT_OPTIONS.ReleaseDateDown ? <img src={sorterDown} alt="sorterDown" /> : <img src={sorterNone} alt="sorterNone" />}
                 </SortButton>
-            </TableCellReleaseDate>
-        </TableHeader>
+            </TableHeaderReleaseDateCell>
+        </TableHeaderRow>
     );
 });

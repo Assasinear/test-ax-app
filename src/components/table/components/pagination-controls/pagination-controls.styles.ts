@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FilterSelect } from '../../table.styles';
 
-export const PaginationContainer = styled.div`
+export const PaginationContainer = styled.td`
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -17,7 +17,6 @@ export const PaginationButton = styled.button`
     border: none;
     background-color: transparent;
     color: white;
-
     &:disabled {
         background-color: #aaa;
         cursor: not-allowed;
@@ -32,7 +31,6 @@ export const PaginationDotsButton = styled.button`
     border: none;
     background-color: transparent;
     color: white;
-
     &:disabled {
         background-color: #aaa;
         cursor: not-allowed;

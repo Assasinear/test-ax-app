@@ -1,11 +1,5 @@
-import {FC, ChangeEvent, useMemo, memo, ReactNode, useCallback, useRef} from 'react';
-import {
-    PaginationContainer,
-    PaginationButton,
-    SelectPageSize,
-    AllGamesCounter,
-    PageSizeContainer, PaginationDotsButton
-} from './pagination-controls.styles';
+import { FC, ChangeEvent, useMemo, memo, ReactNode, useCallback, useRef } from 'react';
+import { PaginationContainer, PaginationButton, SelectPageSize, AllGamesCounter, PageSizeContainer, PaginationDotsButton } from './pagination-controls.styles';
 import paginationIconLeft from '../../../../assets/paginationLeft.svg';
 import paginationIconRight from '../../../../assets/paginationRight.svg';
 import pageSizeInsideIcon from '../../../../assets/sorterDown.svg';
@@ -20,27 +14,18 @@ interface PaginationControlsProps {
     pageSizeOptions: ReactNode[];
 }
 
-export const PaginationControls: FC<PaginationControlsProps> = memo(({
-                                                                         totalPages,
-                                                                         totalGames,
-                                                                         currentPage,
-                                                                         handlePageChange,
-                                                                         pageSize,
-                                                                         handlePageSizeChange,
-                                                                         pageSizeOptions,
-                                                                     }) => {
+export const PaginationControls: FC<PaginationControlsProps> = memo(({ totalPages, totalGames, currentPage, handlePageChange, pageSize, handlePageSizeChange, pageSizeOptions }) => {
     const selectRef = useRef<HTMLSelectElement>(null);
+
     const visiblePages = useMemo(() => {
         const totalVisiblePages = 5;
         const pages: (number | string)[] = [];
-
         if (totalPages <= totalVisiblePages + 2) {
             for (let i = 1; i <= totalPages; i++) {
                 pages.push(i);
             }
         } else {
             const halfVisiblePages = Math.floor(totalVisiblePages / 2);
-
             const startPage = Math.max(1, currentPage - halfVisiblePages);
             const endPage = Math.min(totalPages, currentPage + halfVisiblePages);
 
@@ -50,7 +35,6 @@ export const PaginationControls: FC<PaginationControlsProps> = memo(({
             }
             if (endPage < totalPages - 1) pages.push('...', totalPages);
         }
-
         return pages;
     }, [totalPages, currentPage]);
 
@@ -73,52 +57,41 @@ export const PaginationControls: FC<PaginationControlsProps> = memo(({
     }, [selectRef]);
 
     return (
-        <PaginationContainer>
-            <AllGamesCounter>
-                Всего {totalGames}
-            </AllGamesCounter>
-            <PaginationButton
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-            >
-                <img src={paginationIconLeft} alt='paginationLeftIcon'/>
-            </PaginationButton>
-            {visiblePages.map((page, index) => {
-                if (typeof page === 'number') {
-                    return (
-                        <PaginationButton key={index} onClick={() => handlePageChange(page)} disabled={currentPage === page}>
-                            {page}
-                        </PaginationButton>
-                    );
-                } else if (page === '...') {
-                    const dotsPosition = index === 1 ? 'left' : 'right';
-                    return (
-                        <PaginationDotsButton key={index} onClick={() => handleThreeDotsClick(dotsPosition)}>
-                            ...
-                        </PaginationDotsButton>
-                    );
-                }
-            })}
-
-            <PaginationButton
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-            >
-                <img src={paginationIconRight} alt='paginationRightIcon'/>
-            </PaginationButton>
-            <PageSizeContainer>
-                выводить по
-                <div style={{backgroundColor: '#181A20', border: '1px solid'}}>
-                <SelectPageSize
-                    onChange={handlePageSizeChange}
-                    value={pageSize}
-                    ref={selectRef}
-                >
-                    {pageSizeOptions}
-                </SelectPageSize>
-                <img src={pageSizeInsideIcon} onClick={handleIconClick} alt='pageSizeDownIcon'/>
-                </div>
-            </PageSizeContainer>
-        </PaginationContainer>
+        <tr>
+            <PaginationContainer colSpan={6}>
+                <AllGamesCounter>Всего {totalGames}</AllGamesCounter>
+                <PaginationButton onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                    <img src={paginationIconLeft} alt="paginationLeftIcon" />
+                </PaginationButton>
+                {visiblePages.map((page, index) => {
+                    if (typeof page === 'number') {
+                        return (
+                            <PaginationButton key={index} onClick={() => handlePageChange(page)} disabled={currentPage === page}>
+                                {page}
+                            </PaginationButton>
+                        );
+                    } else if (page === '...') {
+                        const dotsPosition = index === 1 ? 'left' : 'right';
+                        return (
+                            <PaginationDotsButton key={index} onClick={() => handleThreeDotsClick(dotsPosition)}>
+                                ...
+                            </PaginationDotsButton>
+                        );
+                    }
+                })}
+                <PaginationButton onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                    <img src={paginationIconRight} alt="paginationRightIcon" />
+                </PaginationButton>
+                <PageSizeContainer>
+                    выводить по
+                    <div style={{ backgroundColor: '#181A20', border: '1px solid' }}>
+                        <SelectPageSize onChange={handlePageSizeChange} value={pageSize} ref={selectRef}>
+                            {pageSizeOptions}
+                        </SelectPageSize>
+                        <img src={pageSizeInsideIcon} onClick={handleIconClick} alt="pageSizeDownIcon" />
+                    </div>
+                </PageSizeContainer>
+            </PaginationContainer>
+        </tr>
     );
 });
