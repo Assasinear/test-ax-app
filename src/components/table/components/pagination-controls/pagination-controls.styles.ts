@@ -11,7 +11,7 @@ export const PaginationContainer = styled.td`
 
 export const PaginationButton = styled.button`
     padding: 5px 10px;
-    margin: 0 2px;
+    margin: 0 2px 10px 2px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
@@ -25,7 +25,7 @@ export const PaginationButton = styled.button`
 
 export const PaginationDotsButton = styled.button`
     padding: 5px 10px;
-    margin: 0 2px;
+    margin: 0 2px 10px 2px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
@@ -43,7 +43,7 @@ export const SelectPageSize = styled(FilterSelect)`
 `;
 
 export const AllGamesCounter = styled.span`
-    margin-right: 10px;
+    margin: 0 10px 10px 0;
 `;
 
 export const PageSizeContainer = styled.div`
@@ -51,5 +51,5 @@ export const PageSizeContainer = styled.div`
     width: 150px;
     justify-content: space-between;
     align-items: center;
-    margin: 0 35px;
+    margin: 0 35px 10px 35px;
 `;

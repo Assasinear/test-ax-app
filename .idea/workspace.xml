@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="Pagination update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/table.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="hotfix pageSize" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +69,7 @@
       <workItem from="1718192688117" duration="3222000" />
       <workItem from="1718285899358" duration="4381000" />
       <workItem from="1718322073739" duration="8014000" />
-      <workItem from="1718352148088" duration="3196000" />
+      <workItem from="1718352148088" duration="3555000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -121,7 +111,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718347113041</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Div -&gt; table">
+      <option name="closed" value="true" />
+      <created>1718355440251</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718355440251</updated>
+    </task>
+    <task id="LOCAL-00007" summary="hotfix pageSize">
+      <option name="closed" value="true" />
+      <created>1718355634620</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718355634621</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +150,8 @@
     <MESSAGE value="DayJS update + new filter icons" />
     <MESSAGE value="New borders" />
     <MESSAGE value="Pagination update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pagination update" />
+    <MESSAGE value="Div -&gt; table" />
+    <MESSAGE value="hotfix pageSize" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotfix pageSize" />
   </component>
 </project>
