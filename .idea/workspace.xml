@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="New borders">
-      <change afterPath="$PROJECT_DIR$/src/assets/paginationLeft.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/paginationRight.svg" afterDir="false" />
+    <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="Pagination update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/table.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/table/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +71,7 @@
       <workItem from="1718191692544" duration="859000" />
       <workItem from="1718192688117" duration="3222000" />
       <workItem from="1718285899358" duration="4381000" />
-      <workItem from="1718322073739" duration="6987000" />
+      <workItem from="1718322073739" duration="8014000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -112,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718290083980</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Pagination update">
+      <option name="closed" value="true" />
+      <created>1718347113041</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718347113041</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +135,7 @@
     <MESSAGE value="Table styles update" />
     <MESSAGE value="DayJS update + new filter icons" />
     <MESSAGE value="New borders" />
-    <option name="LAST_COMMIT_MESSAGE" value="New borders" />
+    <MESSAGE value="Pagination update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pagination update" />
   </component>
 </project>

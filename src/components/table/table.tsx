@@ -1,13 +1,9 @@
-import { ChangeEvent, FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
+import {ChangeEvent, FC, memo, useCallback, useEffect, useMemo, useState} from 'react';
 import axios from 'axios';
-import { PaginationControls } from './components/pagination-controls';
-import { TableHeaderComponent } from './components/table-header-component';
-import {
-  TableContainer,
-  TableRow,
-  TableDataContainer,
-} from './table.styles';
-import { TableCell } from './components/table-cell';
+import {PaginationControls} from './components/pagination-controls';
+import {TableHeaderComponent} from './components/table-header-component';
+import {TableContainer, TableDataContainer, TableRow,} from './table.styles';
+import {TableCell} from './components/table-cell';
 import {CORS_PROXY, GENRES, pageSizes, PLATFORMS, SORT_OPTIONS} from "./table.constants";
 import {Game} from "./table.types";
 import dayjs from "dayjs";
@@ -33,13 +29,23 @@ export const Table: FC = memo(() => {
     }
 
     if (sort) {
-      const sortBy = sort === SORT_OPTIONS.ReleaseDateUp ? 'release-date' : '-release-date';
-      url += `sort-by=${sortBy}&`;
+      if(sort === SORT_OPTIONS.ReleaseDateDown){
+        url += `sort-by=release-date&`;
+      }
     }
 
     try {
       const response = await axios.get<Game[]>(url);
-      setGames(response.data);
+      if (sort === SORT_OPTIONS.ReleaseDateUp){
+        setGames(response.data.sort((a, b) => {
+          const dateA = new Date(a.release_date);
+          const dateB = new Date(b.release_date);
+
+          return dateA.getTime() - dateB.getTime();
+        }))
+      } else {
+        setGames(response.data);
+      }
     } catch (error) {
       console.error('Ошибка запроса');
     }
