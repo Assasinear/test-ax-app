@@ -77,41 +77,40 @@ export const Table: FC = memo(() => {
   }, []);
 
   const pageSizeOptions = useMemo(() => (
-    pageSizes.map(size => <option key={size} value={size}>{size}</option>)
+      pageSizes.map(size => <option key={size} value={size}>{size}</option>)
   ), []);
 
   return (
-    <TableContainer>
-      <TableHeaderComponent
-        genre={genre}
-        platform={platform}
-        handleGenreChange={handleGenreChange}
-        handlePlatformChange={handlePlatformChange}
-        handleSortChange={handleSortChange}
-        sort={sort}
-        GENRES={GENRES}
-        PLATFORMS={PLATFORMS}
-      />
-      <TableDataContainer>
-        {paginatedData.map(game => (
-          <TableRow key={game.id}>
-            <TableCell type="name" content={game.title}/>
-            <TableCell type="genre" content={game.genre}/>
-            <TableCell type="platform" content={game.platform}/>
-            <TableCell type="publisher" content={game.publisher}/>
-            <TableCell type="developer" content={game.developer}/>
-            <TableCell type="release_date" content={dayjs(game.release_date).format('DD.MM.YYYY')}/>
-          </TableRow>
-        ))}
-      </TableDataContainer>
-      <PaginationControls
-        totalPages={totalPages}
-        currentPage={currentPage}
-        handlePageChange={handlePageChange}
-        pageSize={pageSize}
-        handlePageSizeChange={handlePageSizeChange}
-        pageSizeOptions={pageSizeOptions}
-      />
-    </TableContainer>
+      <TableContainer>
+        <TableHeaderComponent
+            handleGenreChange={handleGenreChange}
+            handlePlatformChange={handlePlatformChange}
+            handleSortChange={handleSortChange}
+            sort={sort}
+            GENRES={GENRES}
+            PLATFORMS={PLATFORMS}
+        />
+        <TableDataContainer>
+          {paginatedData.map(game => (
+              <TableRow key={game.id}>
+                <TableCell type="name" content={game.title}/>
+                <TableCell type="genre" content={game.genre}/>
+                <TableCell type="platform" content={game.platform}/>
+                <TableCell type="publisher" content={game.publisher}/>
+                <TableCell type="developer" content={game.developer}/>
+                <TableCell type="release_date" content={dayjs(game.release_date).format('DD.MM.YYYY')}/>
+              </TableRow>
+          ))}
+        </TableDataContainer>
+        <PaginationControls
+            totalGames={games.length}
+            totalPages={totalPages}
+            currentPage={currentPage}
+            handlePageChange={handlePageChange}
+            pageSize={pageSize}
+            handlePageSizeChange={handlePageSizeChange}
+            pageSizeOptions={pageSizeOptions}
+        />
+      </TableContainer>
   );
 });

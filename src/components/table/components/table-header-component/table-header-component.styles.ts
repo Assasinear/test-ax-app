@@ -87,7 +87,7 @@ export const CustomSelectTrigger = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 200px;
+  width: 235px;
   background: transparent;
   color: white;
   border-radius: 5px;
@@ -117,10 +117,6 @@ export const CustomSelectOption = styled.div`
   &:hover {
     background-color: #333333;
   }
-`;
-
-export const FilterSelect = styled.select`
-  display: none;
 `;
 
 export const SvgIcon = styled.span`

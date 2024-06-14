@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20e78342-39e9-429b-8740-abcd19c9115b" name="Changes" comment="New borders">
-      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-cell/table-cell.styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/paginationLeft.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/paginationRight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/pagination-controls/pagination-controls.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/components/table-header-component/table-header-component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/table.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -67,6 +78,7 @@
       <workItem from="1718191692544" duration="859000" />
       <workItem from="1718192688117" duration="3222000" />
       <workItem from="1718285899358" duration="4381000" />
+      <workItem from="1718322073739" duration="6987000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />

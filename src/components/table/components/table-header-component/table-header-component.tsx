@@ -6,7 +6,6 @@ import {
     TableHeader,
     Separator,
     TableCellContent,
-    FilterSelect,
     SortButton,
     CustomSelectContainer,
     CustomSelectTrigger,
@@ -24,8 +23,6 @@ enum SORT_OPTIONS {
 }
 
 interface TableHeaderComponentProps {
-    genre: string;
-    platform: string;
     handleGenreChange: (e: ChangeEvent<HTMLSelectElement>) => void;
     handlePlatformChange: (e: ChangeEvent<HTMLSelectElement>) => void;
     handleSortChange: () => void;
@@ -47,8 +44,6 @@ const platformIcon = (
 );
 
 export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({
-                                                                             genre,
-                                                                             platform,
                                                                              handleGenreChange,
                                                                              handlePlatformChange,
                                                                              handleSortChange,
@@ -58,9 +53,6 @@ export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({
                                                                          }) => {
     const [isGenreOpen, setIsGenreOpen] = useState(false);
     const [isPlatformOpen, setIsPlatformOpen] = useState(false);
-
-    const currentGenreText = Object.keys(GENRES).find(key => GENRES[key] === genre) || 'Все';
-    const currentPlatformText = Object.keys(PLATFORMS).find(key => PLATFORMS[key] === platform) || 'Все';
 
     return (
         <TableHeader>
@@ -89,12 +81,6 @@ export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({
                         ))}
                     </CustomSelectOptions>
                 </CustomSelectContainer>
-                <FilterSelect onChange={handleGenreChange} value={Object.keys(GENRES).find((key) => GENRES[key] === genre) || ''}>
-                    <option value="">Все</option>
-                    {Object.keys(GENRES).map((g) => (
-                        <option key={g} value={g}>{g}</option>
-                    ))}
-                </FilterSelect>
                 <Separator />
             </TableCellNameGenreDeveloperPublisher>
 
@@ -118,12 +104,6 @@ export const TableHeaderComponent: FC<TableHeaderComponentProps> = memo(({
                         ))}
                     </CustomSelectOptions>
                 </CustomSelectContainer>
-                <FilterSelect onChange={handlePlatformChange} value={Object.keys(PLATFORMS).find((key) => PLATFORMS[key] === platform) || ''}>
-                    <option value="">Все</option>
-                    {Object.keys(PLATFORMS).map((p) => (
-                        <option key={p} value={p}>{p}</option>
-                    ))}
-                </FilterSelect>
                 <Separator />
             </TableCellPlatform>
 
